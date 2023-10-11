@@ -12,6 +12,7 @@ module.exports = {
       colors: {
         primary: "#01483A",
         secondary: "#ADC2BD",
+        tertiary: "#FFBF3F",
       },
     },
     container: {
@@ -19,7 +20,9 @@ module.exports = {
       padding: "1rem",
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   content: [
     path.resolve(__dirname, "**/*.{js,vue}"),
     path.resolve(__dirname, "../shopify/**/*.liquid"),
