@@ -2,9 +2,13 @@
   "sections": {
     "main": {
       "type": "main-product"
+    },
+    "circles": {
+      "type": "section-circles"
     }
   },
   "order": [
-    "main"
+    "main",
+    "circles"
   ]
 }
