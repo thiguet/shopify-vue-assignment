@@ -1,11 +1,38 @@
 <div class="bg-white border-b border-gray-200">
   <div class="container">
-    <div class="h-20 md:h-32 flex justify-center md:justify-between items-center">
+    <div class="h-20 md:h-32 flex space-between md:justify-between items-center">
+      
+      <div class="px-2 flex justify-between items-center w-full md:hidden">
+        <button @click="$store.dispatch('mobile-menu/toggle')" aria-label="side menu icon">
+          {% render 'icon-menu' %}
+        </button>
+        <a
+          href="{{ routes.root_url }}"
+          class="inline-block text-2xl lg:text-3xl font-bold"
+          aria-label="Fulton logo icon"
+        >
+          {% render 'logo' %}
+        </a>
+
+        <a
+          href="{{ routes.cart_url }}"
+          class="{{ link_class }} relative group"
+        >
+          {% render 'icon-cart', class: icon_class %}
+
+          {% if cart.item_count > 0 %}
+            <div class="w-5 h-5 flex justify-center jump items-center bg-black text-white text-xs border border-white rounded-full absolute -top-2 -right-2">
+              {{ cart.item_count }}
+            </div>
+          {% endif %}
+        </a>
+      </div>
+
       <a
         href="{{ routes.root_url }}"
-        class="inline-block text-2xl lg:text-3xl font-bold"
+        class="hidden md:inline-block text-2xl lg:text-3xl font-bold"
       >
-        {{ shop.name }}
+        {% render 'logo' %}
       </a>
 
       <div class="hidden md:block">

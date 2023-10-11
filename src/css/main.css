@@ -10,4 +10,6 @@
 @import "_mobile-navigation";
 @import "_transitions";
 
+@import "_slider";
+
 @import "tailwindcss/utilities";
