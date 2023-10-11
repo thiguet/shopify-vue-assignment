@@ -84,6 +84,17 @@
       "settings": {
         "enable_star_rating": "Enable Star Rating"
       }
+    },
+    "circles": {
+      "name": "Circles",
+      "blocks": {
+        "circle": "Mobile Circle",
+        "desktop_circle": "Desktop Circle" 
+      } ,
+      "settings": {
+        "bg-color": "Circle Background Color",
+        "icon": "Circle Icon"
+      }
     }
   }
 }

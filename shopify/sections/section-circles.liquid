@@ -1,0 +1,118 @@
+{% assign circles = section.blocks | where: 'type', 'circle' %}
+{% assign desktop_circles = section.blocks | where: 'type', 'desktop_circle' %}
+
+{% if circles.size > 0 %}
+<ul class="lg:hidden px-4 grid grid-cols-2  [&>*:nth-child(n+3)]:mt-4">
+    {% for block in circles %}
+        {% if block.settings.icon != nil %}
+            <li class="flex flex-col justify-center items-center">
+                <div class="rounded-full w-36 h-36 flex items-center justify-center" style="background-color: {{ block.settings.bg_color }}">
+                    <img
+                        sizes="80%"
+                        srcset="{{ block.settings.icon | image_url }}"
+                        alt="{{ block.settings.icon.alt }}"
+                        loading="lazy"
+                        class="motion-reduce:transition-none motion-reduce:hover:transform-none hover:scale-110 transition-transform duration-300 delay-75 object-cover object-center"
+                    />
+                </div>
+                <p class="max-w-[7.6rem] mt-2 text-primary text-center">{{ block.settings.title }}</p>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if desktop_circles.size > 0 %}
+<ul class="hidden px-4 lg:grid grid-cols-2 sm:grid-cols-5 [&>*:nth-child(n+3)]:mt-4">
+    {% for block in desktop_circles %}
+        {% if block.settings.icon != nil %}
+            <li class="flex flex-col justify-center items-center">
+                <div class="group aspect-square relative rounded-full h-48 w-48 flex items-center justify-center" style="background-color: {{ block.settings.bg_color }}">
+                    <img
+                        sizes="80%"
+                        srcset="{{ block.settings.icon | image_url }}"
+                        alt="{{ block.settings.icon.alt }}"
+                        loading="lazy"
+                        class="motion-reduce:transition-none motion-reduce:hover:transform-none group-hover:scale-110 transition-transform duration-300 delay-75 object-fill z-50 w-[50%] h-[50%]"
+                    />
+                    <svg class="absolute mt-2 motion-reduce:transition-none motion-reduce:hover:transform-none group-hover:rotate-[450deg] transition-transform duration-700 delay-75 rotate-90 text-primary" fill="#01483A" id="rotatingText" viewBox="0 0 200 200" width="200" height="200">
+                        <defs>
+                          <path id="circle" d="M 100, 100
+                                  m -75, 0
+                                  a 75, 75 0 1, 0 150, 0
+                                  a 75, 75 0 1, 0 -150, 0
+                                  ">
+                          </path>
+                        </defs>
+                        <text width="400">
+                          <textPath color="#01483A" startOffset="50%" dominant-baseline="middle" text-anchor="middle" alignment-baseline="top" xlink:href="#circle" class="text-primary">
+                            {{- block.settings.title -}}
+                          </textPath>
+                        </text>
+                    </svg>
+                </div>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+{% schema %}
+{
+    "name": "t:sections.circles.name",
+    "class": "shopify-section-vue",
+    "blocks": [
+        {
+            "type": "circle",
+            "name": "t:sections.circles.blocks.circle",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "t:common.headline"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "default": "#f5c158",
+                    "label": "t:sections.circles.settings.bg-color"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "t:sections.circles.settings.icon"
+                }
+            ]
+        },
+        {
+            "type": "desktop_circle",
+            "name": "t:sections.circles.blocks.desktop_circle",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "t:common.headline"
+                },
+                {
+                    "type": "color",
+                    "id": "bg_color",
+                    "default": "#f5c158",
+                    "label": "t:sections.circles.settings.bg-color"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "icon",
+                    "label": "t:sections.circles.settings.icon"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "t:sections.circles.name",
+            "category": "Circles"
+        }
+    ]
+}
+{% endschema %}
