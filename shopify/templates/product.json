@@ -1,10 +1,96 @@
 {
   "sections": {
     "main": {
-      "type": "main-product"
+      "type": "main-product",
+      "settings": {
+        "enable_star_rating": true
+      }
     },
     "circles": {
-      "type": "section-circles"
+      "type": "section-circles",
+      "blocks": {
+        "122aae25-f745-47ce-aed1-22549090d997": {
+          "type": "circle",
+          "settings": {
+            "title": "",
+            "icon": "shopify:\/\/shop_images\/Fingerprint_Icon_81942779-3f13-407c-b2d5-e22ff607201c_1.svg"
+          }
+        },
+        "650b89e0-ad0b-47bd-8194-a673812b033e": {
+          "type": "circle",
+          "settings": {
+            "title": "Supreme comfort",
+            "icon": "shopify:\/\/shop_images\/Comfort_Icon_c21f0e32-63ca-4c39-ac36-caf357ebab85_1.svg"
+          }
+        },
+        "ffa8938c-6e3f-4991-bae5-17f9db9eeb9b": {
+          "type": "circle",
+          "settings": {
+            "title": "Designed by doctors",
+            "icon": "shopify:\/\/shop_images\/image_79.svg"
+          }
+        },
+        "798356ad-362c-4014-8e23-5d7c52adff9f": {
+          "type": "circle",
+          "settings": {
+            "title": "Certified carbon negative",
+            "icon": "shopify:\/\/shop_images\/Earth_Icon_b1c56a7c-5b26-402d-86e2-7ed0ed39b256_1.svg"
+          }
+        },
+        "6290c492-bdc1-4dd6-813b-9202b7391bd7": {
+          "type": "desktop_circle",
+          "settings": {
+            "title": "Designed by doctors",
+            "rotate": -34,
+            "icon": "shopify:\/\/shop_images\/image_79.svg"
+          }
+        },
+        "9b119ec8-268a-4fa4-9d1a-d8ac8203ec3c": {
+          "type": "desktop_circle",
+          "settings": {
+            "title": "Custom molding technology",
+            "rotate": -15,
+            "icon": "shopify:\/\/shop_images\/Fingerprint_Icon_81942779-3f13-407c-b2d5-e22ff607201c_1.svg"
+          }
+        },
+        "2ebd9563-c9bb-436f-8697-1ec800f40be8": {
+          "type": "desktop_circle",
+          "settings": {
+            "title": "No trimming required",
+            "rotate": -27,
+            "icon": "shopify:\/\/shop_images\/scissors_190c550f-93e5-486a-b288-3bc90e6e8802.svg"
+          }
+        },
+        "2fd9f888-b91d-46ee-998a-ff9dc857f5af": {
+          "type": "desktop_circle",
+          "settings": {
+            "title": "Handcrafted quality",
+            "rotate": -33,
+            "icon": "shopify:\/\/shop_images\/pencil_7850c2aa-f769-4aa6-9cec-be4b19542ac4.svg"
+          }
+        },
+        "056ff051-127b-4f2d-99b3-abc6e522f871": {
+          "type": "desktop_circle",
+          "settings": {
+            "title": "90-day comfort guarantee",
+            "rotate": -17,
+            "icon": "shopify:\/\/shop_images\/book_3b757833-3eb7-4292-98b2-8c64a678098e.svg"
+          }
+        }
+      },
+      "block_order": [
+        "122aae25-f745-47ce-aed1-22549090d997",
+        "650b89e0-ad0b-47bd-8194-a673812b033e",
+        "ffa8938c-6e3f-4991-bae5-17f9db9eeb9b",
+        "798356ad-362c-4014-8e23-5d7c52adff9f",
+        "6290c492-bdc1-4dd6-813b-9202b7391bd7",
+        "9b119ec8-268a-4fa4-9d1a-d8ac8203ec3c",
+        "2ebd9563-c9bb-436f-8697-1ec800f40be8",
+        "2fd9f888-b91d-46ee-998a-ff9dc857f5af",
+        "056ff051-127b-4f2d-99b3-abc6e522f871"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
