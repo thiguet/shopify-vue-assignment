@@ -78,6 +78,12 @@
       "settings": {
         "quote": "Quote"
       }
+    },
+    "main-product": {
+      "name": "Main Product",
+      "settings": {
+        "enable_star_rating": "Enable Star Rating"
+      }
     }
   }
 }

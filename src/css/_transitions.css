@@ -42,3 +42,7 @@
 .form-fade-leave-to {
   @apply absolute opacity-0;
 }
+
+.jump {
+  @apply transition-transform  group-hover:-translate-y-2  hover:-translate-y-2;
+}
