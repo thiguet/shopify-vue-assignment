@@ -1,0 +1,8 @@
+.bubble {
+  @apply opacity-40;
+  @apply bg-primary;
+}
+
+.bubble.active {
+  @apply opacity-100;
+}
