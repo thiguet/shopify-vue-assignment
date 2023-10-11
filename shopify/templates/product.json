@@ -41,7 +41,6 @@
           "type": "desktop_circle",
           "settings": {
             "title": "Designed by doctors",
-            "rotate": -34,
             "icon": "shopify:\/\/shop_images\/image_79.svg"
           }
         },
@@ -49,7 +48,6 @@
           "type": "desktop_circle",
           "settings": {
             "title": "Custom molding technology",
-            "rotate": -15,
             "icon": "shopify:\/\/shop_images\/Fingerprint_Icon_81942779-3f13-407c-b2d5-e22ff607201c_1.svg"
           }
         },
@@ -57,7 +55,6 @@
           "type": "desktop_circle",
           "settings": {
             "title": "No trimming required",
-            "rotate": -27,
             "icon": "shopify:\/\/shop_images\/scissors_190c550f-93e5-486a-b288-3bc90e6e8802.svg"
           }
         },
@@ -65,7 +62,6 @@
           "type": "desktop_circle",
           "settings": {
             "title": "Handcrafted quality",
-            "rotate": -33,
             "icon": "shopify:\/\/shop_images\/pencil_7850c2aa-f769-4aa6-9cec-be4b19542ac4.svg"
           }
         },
@@ -73,7 +69,6 @@
           "type": "desktop_circle",
           "settings": {
             "title": "90-day comfort guarantee",
-            "rotate": -17,
             "icon": "shopify:\/\/shop_images\/book_3b757833-3eb7-4292-98b2-8c64a678098e.svg"
           }
         }

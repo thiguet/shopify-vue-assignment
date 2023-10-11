@@ -12,7 +12,7 @@
                         srcset="{{ block.settings.icon | image_url }}"
                         alt="{{ block.settings.icon.alt }}"
                         loading="lazy"
-                        class="object-cover object-center"
+                        class="motion-reduce:transition-none motion-reduce:hover:transform-none hover:scale-110 transition-transform duration-300 delay-75 object-cover object-center"
                     />
                 </div>
                 <p class="max-w-[7.6rem] mt-2 text-primary text-center">{{ block.settings.title }}</p>
@@ -27,15 +27,15 @@
     {% for block in desktop_circles %}
         {% if block.settings.icon != nil %}
             <li class="flex flex-col justify-center items-center">
-                <div class="aspect-square relative rounded-full h-48 w-48 flex items-center justify-center" style="background-color: {{ block.settings.bg_color }}">
+                <div class="group aspect-square relative rounded-full h-48 w-48 flex items-center justify-center" style="background-color: {{ block.settings.bg_color }}">
                     <img
                         sizes="80%"
                         srcset="{{ block.settings.icon | image_url }}"
                         alt="{{ block.settings.icon.alt }}"
                         loading="lazy"
-                        class="jump object-fill z-50 w-[50%] h-[50%]"
+                        class="motion-reduce:transition-none motion-reduce:hover:transform-none group-hover:scale-110 transition-transform duration-300 delay-75 object-fill z-50 w-[50%] h-[50%]"
                     />
-                    <svg class="absolute mt-2 text-primary" fill="#01483A" id="rotatingText" transform="rotate({{ block.settings.rotate }})" viewBox="0 0 200 200" width="200" height="200">
+                    <svg class="absolute mt-2 motion-reduce:transition-none motion-reduce:hover:transform-none group-hover:rotate-[450deg] transition-transform duration-700 delay-75 rotate-90 text-primary" fill="#01483A" id="rotatingText" viewBox="0 0 200 200" width="200" height="200">
                         <defs>
                           <path id="circle" d="M 100, 100
                                   m -75, 0
@@ -45,7 +45,7 @@
                           </path>
                         </defs>
                         <text width="400">
-                          <textPath color="#01483A" alignment-baseline="top" xlink:href="#circle" class="text-primary">
+                          <textPath color="#01483A" startOffset="50%" dominant-baseline="middle" text-anchor="middle" alignment-baseline="top" xlink:href="#circle" class="text-primary">
                             {{- block.settings.title -}}
                           </textPath>
                         </text>
@@ -79,12 +79,6 @@
                     "label": "t:sections.circles.settings.bg-color"
                 },
                 {
-                    "type": "number",
-                    "id": "rotate",
-                    "default": -36,
-                    "label": "t:sections.circles.settings.rotate"
-                },
-                {
                     "type": "image_picker",
                     "id": "icon",
                     "label": "t:sections.circles.settings.icon"
@@ -105,12 +99,6 @@
                     "id": "bg_color",
                     "default": "#f5c158",
                     "label": "t:sections.circles.settings.bg-color"
-                },
-                {
-                    "type": "number",
-                    "id": "rotate",
-                    "default": -36,
-                    "label": "t:sections.circles.settings.rotate"
                 },
                 {
                     "type": "image_picker",

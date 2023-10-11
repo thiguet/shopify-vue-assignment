@@ -93,8 +93,7 @@
       } ,
       "settings": {
         "bg-color": "Circle Background Color",
-        "icon": "Circle Icon",
-        "rotate": "Rotate"
+        "icon": "Circle Icon"
       }
     }
   }
