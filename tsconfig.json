@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shopify-directory/*": ["./shopify/*"]
+    },
+    "rootDir": "src",
+    "outDir": "dist",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "types": ["webpack-env", "node"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+  },
+  "include": ["./src/main.ts", "./src/**/*.ts", "./src/**/*.vue"],
+  "exclude": ["node_modules"],
+  "vueCompilerOptions": {
+    "target": 3, // or 2.7 is not supported by Volar.
+    "plugins": [
+      "@vue-macros/volar/define-slots"
+      // ...more feature
+    ]
+  }
+}
