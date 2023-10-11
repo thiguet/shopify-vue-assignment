@@ -1,0 +1,6 @@
+.option {
+  @apply transition-transform px-2;
+}
+.option.active {
+  @apply border-2 border-tertiary transition-transform py-[0.4rem] px-[0.4rem] scale-[0.98];
+}

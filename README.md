@@ -22,6 +22,7 @@ Here's the [Demo](https://thiguet-assigment.myshopify.com/) link.
 ## Features
 
 - [x] 1. Product Information
+
   - [x] a. Product Title
   - [x] b. Product Review stars and count
     - [x] i. This does not need to be connected to any 3rd party service providers
@@ -31,37 +32,42 @@ Here's the [Demo](https://thiguet-assigment.myshopify.com/) link.
     - [x] iii. Percentage Savings: Dynamic based on price and compare price
 
 - [ ] 2. Hero Gallery
+
   - [ ] a. Mobile: Carousel functionality
   - [ ] b. Desktop: 2 column layout with n+2 images.
 
-- [ ] 3. Product Description
-  - [ ] a. Accepts rich text
+- [x] 3. Product Description
 
-- [ ] 4. Product Selections
-  - [ ] a. May have 1 - 3 options which are logically tied together.
-    - [ ] i. Option 1: Width
-      - [ ] 1. Standard
-      - [ ] 2. Narrow
-    - [ ] ii. Option 2: Gender
-      - [ ] 1. Men
-      - [ ] 2. Women
-    - [ ] iii. Option 3: Size
-      - [ ] 1. Men Sizes: 7 - 15
-      - [ ] 2. Women sizes: 5 - 12
+  - [x] a. Accepts rich text
+
+- [x] 4. Product Selections
+
+  - [x] a. May have 1 - 3 options which are logically tied together.
+    - [x] i. Option 1: Width
+      - [x] 1. Standard
+      - [x] 2. Narrow
+    - [x] ii. Option 2: Gender
+      - [x] 1. Men
+      - [x] 2. Women
+    - [x] iii. Option 3: Size
+      - [x] 1. Men Sizes: 7 - 15
+      - [x] 2. Women sizes: 5 - 12
   - [ ] b. When a user selects option(s) they should automatically update other options to
         show / hide the correct information.
     - [ ] i. Example: Standard width is selected, then the user selects Women
           gender. Result should be displaying the correct range of sizes.
 
-- [ ] 5. Product Add To Cart
-  - [ ] a. Based on user selection, the price displayed in button text should update in
+- [x] 5. Product Add To Cart
+
+  - [x] a. Based on user selection, the price displayed in button text should update in
         accordance with product pricing.
 
 - [ ] 6. Product Guarantee Text
+
   - [ ] a. Displays small image and text
 
 - [x] 7. Product Values Icon Row
   - [x] a. Mobile: 2 column layout with n+2 images.
-  - [ ] b. Desktop: 5 column row with n+5 images.
+  - [x] b. Desktop: 5 column row with n+5 images.
 
 <!-- features (end) -->

@@ -10,11 +10,11 @@ import "./css/main.css"
  * vuex
  * auto-import all modules and prepare shared store
  */
-const vuexModules = require.context("./vue/store/", true, /\.js$/)
+const vuexModules = require.context("./vue/store/", true, /\.(j|t)s$/)
 const modules = {}
 
 vuexModules.keys().forEach((key) => {
-  const name = key.replace(/\.(\/|js)/g, "").replace(/\s/g, "-")
+  const name = key.replace(/\.(\/|(j|t)s)/g, "").replace(/\s/g, "-")
   // @ts-ignore
   modules[name] = vuexModules(key).default
 })
@@ -42,6 +42,7 @@ const createVueApp = () => {
 
   vueComponents.keys().forEach((key) => {
     const component = vueComponents(key).default
+    console.log(key)
 
     // if a component has a name defined use the name, else use the path as the component name
     const name = component.name

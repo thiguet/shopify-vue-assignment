@@ -28,8 +28,6 @@
       </div>
     {% endif %}
 
-      
-
     {% if current_variant.available %}
         <div class="flex gap-3">
           <span class="inline-block text-lg {% if current_variant.compare_at_price %}text-primary{% endif %} font-semibold">
@@ -96,20 +94,23 @@
   </renderless-simple-slider>
 
   <div class="md:mt-12">
-    
+
+    {% if product.description %}
+      <div class="mt-4 mb-6">
+        {{ product.description }}
+      </div>
+    {% endif %}
+
     {% form 'product', product %}
       <div class="flex items-end gap-4 mb-6">
-        {% if current_variant.available %}
-          <input
-            type="number"
-            name="quantity"
-            value="1"
-            min="1"
-            pattern="[0-9]*"
-            class="w-16"
-          >
-        {% endif %}
-
+        <input
+          type="hidden"
+          name="quantity"
+          value="1"
+          min="1"
+          pattern="[0-9]*"
+          class="w-16"
+        >
         {% if product.has_only_default_variant %}
           <input
             name="id"
@@ -133,29 +134,25 @@
                   readonly
                 >
 
-                <div class="flex gap-x-3">
+                <div class="flex flex-col gap-x-3">
                   {% for option in product.options_with_values %}
-                    <div class="flex-1">
-                      <label for="product-select-option-{{ forloop.index }}">
-                        {{ option.name | escape }}
+                    <div class="" data-option="{{option.name}}">
+                      <label class="text-primary" for="product-select-option-{{ forloop.index }}">
+                        {{ option.name | escape }}:
                       </label>
 
-                      <select
-                        id="product-select-{{ forloop.index }}"
-                        class="w-full h-12 border p-2"
-                        @change="selectOption({
-                          name: '{{ option.name }}'
-                        }, $event)"
-                      >
+                      <div class="flex gap-1 w-full">
                         {% for value in option.values %}
-                          <option
-                            value="{{ value }}"
-                            {% if option.selected_value == value %}selected{% endif %}
-                          >
-                            {{ value | escape }}
-                          </option>
+                          <div class="w-full">
+                            <label class="option flex items-center text-center justify-center bg-primary text-tertiary p-2 rounded-md {% if option.selected_value == value %} active {% endif %}" for="{{value}}">{{value | escape}} </label>
+                            <input 
+                              @input="selectOption({
+                                name: '{{ option.name }}'
+                              }, $event)"
+                              id="{{value}}" name="{{option.name}}" type="radio" class="sr-only" value="{{value}}" />
+                          </div>
                         {% endfor %}
-                      </select>
+                      </div>
                     </div>
                   {% endfor %}
                 </div>
@@ -166,25 +163,16 @@
       </div>
 
       {% if current_variant.available %}
-        <div class="grid grid-cols-2 gap-4">
-          <div class="button-shopify-buy-it-now">
-            {{ form | payment_button }}
-          </div>
-
+        <div class="w-full">
           <div>
-            <button name="add" class="button button-secondary w-full h-12">
-              {{ 'action.add_to_cart' | t }}
+            <button name="add" class="text-white bg-primary w-full h-12">
+              {{ 'action.add_to_cart' | t }} <span v-html="$store.getters['product/getPrice']"></span>
             </button>
           </div>
         </div>
       {% endif %}
     {% endform %}
 
-    {% if product.description %}
-      <div class="mt-4">
-        {{ product.description }}
-      </div>
-    {% endif %}
   </div>
 </div>
 
