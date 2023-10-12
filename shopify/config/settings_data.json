@@ -1,4 +1,22 @@
 {
   "current": {
+    "sections": {
+      "layout-announcement-bar": {
+        "type": "layout-announcement-bar",
+        "settings": {
+          "visible": true,
+          "home_page_only": false,
+          "content": "FREE SHIPPING OVER $60 <a href=\"\/products\/all\" style=\"margin-left: 0.5rem;\">SHOP  NOW<\/a>"
+        }
+      },
+      "layout-header": {
+        "type": "layout-header",
+        "settings": {
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   }
 }
