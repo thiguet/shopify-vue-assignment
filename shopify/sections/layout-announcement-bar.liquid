@@ -1,6 +1,6 @@
 {% if section.settings.visible %}
   {% if section.settings.home_page_only == false or template.name == 'index' %}
-    <div class="container text-sm text-center py-2 bg-primary">
+    <div class="text-sm text-center py-2 text-tertiary bg-primary">
       {{ section.settings.content }}
     </div>
   {% endif %}
@@ -8,7 +8,7 @@
 
 {% schema %}
 {
-  "name":"t:sections.announcement-bar.name",
+  "name": "t:sections.announcement-bar.name",
   "class": "bg-black text-white",
   "settings": [
     {

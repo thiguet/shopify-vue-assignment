@@ -1,6 +1,10 @@
 .option {
-  @apply transition-transform px-2;
+  @apply opacity-0;
+  @apply bg-primary text-tertiary lg:text-primary lg:border-primary px-2 transition-transform lg:bg-white lg:hover:outline lg:hover:outline-1;
 }
 .option.active {
-  @apply border-2 border-tertiary transition-transform py-[0.4rem] px-[0.4rem] scale-[0.98];
+  @apply border-tertiary lg:bg-primary  lg:text-tertiary lg:border-primary scale-[0.98] border-2 px-[0.4rem] py-[0.4rem] transition-transform;
+}
+.option.visible {
+  @apply opacity-100;
 }
