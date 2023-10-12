@@ -1,5 +1,5 @@
 <script>
-import { ref, toRefs } from "vue"
+import { ref, toRefs, onMounted } from "vue"
 import { useStore } from "vuex"
 
 export default {
@@ -32,14 +32,15 @@ export default {
         (value) => value !== selectedValue,
       )
 
-      const targetOptions = [
-        selectedValue,
+      const otherOptions = [
         ...selectedVariant.value.options.filter(
           (value) => !allOptionValuesWithoutSelected.includes(value),
         ),
       ]
 
-      productVariants.value.some((variant) => {
+      const targetOptions = [selectedValue, ...otherOptions]
+
+      const hasVariantBeenUpdated = productVariants.value.some((variant) => {
         if (variant.options.every((option) => targetOptions.includes(option))) {
           selectedVariant.value = variant
           store.dispatch("product/variant", variant)
@@ -47,10 +48,20 @@ export default {
           goToVariant(selectedVariant.value.id)
           updateVariant($event.target, name)
           return true
-        } else {
-          updateVariant($event.target, name)
         }
       })
+
+      if (!hasVariantBeenUpdated) {
+        const variant = productVariants.value.find((variant) =>
+          variant.options.includes(selectedValue),
+        )
+        selectedVariant.value = variant
+        store.dispatch("product/variant", variant)
+        goToVariant(selectedVariant.value.id)
+        updateOptionsByVariant(variant, $event.target, name)
+
+        return true
+      }
     }
 
     const goToVariant = function (value) {
@@ -59,13 +70,29 @@ export default {
       window.history.pushState(null, "", url)
     }
 
-    const updateVariant = function (target, optionName) {
+    const updateOptionsByVariant = (variant, target, optionName) => {
+      document.querySelectorAll(`label.active`).forEach((el) => {
+        el.classList.remove("active")
+      })
+      document.querySelectorAll("[data-option-index]").forEach((el, i) => {
+        const activeOption = el.querySelector(
+          `label.option[data-value="${variant["option" + (i + 1)]}"]`,
+        )
+
+        activeOption.classList.add("active")
+      })
+
+      showSizesByGender(optionName, target.value)
+    }
+
+    const updateVariant = (target, optionName) => {
       document
         .querySelector(`[data-option="${optionName}"] label.active`)
         .classList.remove("active")
+
       target.parentElement.querySelector("label").classList.add("active")
 
-      hideImpossibleVariantOptions(optionName, target.value)
+      showSizesByGender(optionName, target.value)
     }
 
     const hideImpossibleVariantOptions = function (optionName, value) {
@@ -122,11 +149,20 @@ export default {
       }
     }
 
+    const showSizesByGender = function (optionName, value) {
+      if (optionName === "Gender") {
+        hideImpossibleVariantOptions(optionName, value)
+      }
+    }
+
+    onMounted(() => showSizesByGender("Gender", currentVariant.value.option2))
+
     return () =>
       slots.default({
         selectedVariant: selectedVariant.value,
         selectOption,
       })
   },
+  methods: {},
 }
 </script>
