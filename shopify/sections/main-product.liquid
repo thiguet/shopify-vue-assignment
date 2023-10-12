@@ -191,7 +191,7 @@
               </del>
   
               <div class="bg-secondary flex items-center h-8 text-primary text-sm lg:text-md tracking-wider uppercase px-2 py-1">
-                {% assign ratio = current_variant.price | times: 100 | divided_by: current_variant.compare_at_price %}
+                
                 
                 <span v-html="$store.getters['product/getDiscount']"></span>
                 {{- 'common.sale' | t -}} 

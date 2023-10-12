@@ -84,8 +84,12 @@
         "2fd9f888-b91d-46ee-998a-ff9dc857f5af",
         "056ff051-127b-4f2d-99b3-abc6e522f871"
       ],
-      "settings": {}
+      "settings": {
+      }
     }
   },
-  "order": ["main", "circles"]
+  "order": [
+    "main",
+    "circles"
+  ]
 }
