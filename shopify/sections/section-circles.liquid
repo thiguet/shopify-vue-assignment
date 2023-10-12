@@ -2,7 +2,7 @@
 {% assign desktop_circles = section.blocks | where: 'type', 'desktop_circle' %}
 
 {% if circles.size > 0 %}
-<ul class="lg:hidden px-4 grid grid-cols-2  [&>*:nth-child(n+3)]:mt-4">
+<ul class="lg:hidden px-4 grid grid-cols-2 md:grid-cols-4 [&>*:nth-child(n+3)]:mt-4">
     {% for block in circles %}
         {% if block.settings.icon != nil %}
             <li class="flex flex-col justify-center items-center">
@@ -23,7 +23,7 @@
 {% endif %}
 
 {% if desktop_circles.size > 0 %}
-<ul class="hidden px-4 lg:grid grid-cols-2 sm:grid-cols-5 [&>*:nth-child(n+3)]:mt-4">
+<ul class="max-w-screen-lg m-auto hidden px-4 lg:gap-12 lg:grid grid-cols-2 sm:grid-cols-5 [&>*:nth-child(n+3)]:mt-4">
     {% for block in desktop_circles %}
         {% if block.settings.icon != nil %}
             <li class="flex flex-col justify-center items-center">

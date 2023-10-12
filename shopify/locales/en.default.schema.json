@@ -82,15 +82,16 @@
     "main-product": {
       "name": "Main Product",
       "settings": {
-        "enable_star_rating": "Enable Star Rating"
+        "enable_star_rating": "Enable Star Rating",
+        "enable_slider_controls": "Enable Slider Controls"
       }
     },
     "circles": {
       "name": "Circles",
       "blocks": {
         "circle": "Mobile Circle",
-        "desktop_circle": "Desktop Circle" 
-      } ,
+        "desktop_circle": "Desktop Circle"
+      },
       "settings": {
         "bg-color": "Circle Background Color",
         "icon": "Circle Icon"

@@ -1,6 +1,6 @@
 <div class="bg-white border-b border-gray-200">
   <div class="container">
-    <div class="h-20 md:h-32 flex space-between md:justify-between items-center">
+    <div class="h-20 md:h-24 flex space-between md:justify-between items-center">
       
       <div class="px-2 flex justify-between items-center w-full md:hidden">
         <button @click="$store.dispatch('mobile-menu/toggle')" aria-label="side menu icon">
@@ -21,7 +21,7 @@
           {% render 'icon-cart', class: icon_class %}
 
           {% if cart.item_count > 0 %}
-            <div class="w-5 h-5 flex justify-center jump items-center bg-black text-white text-xs border border-white rounded-full absolute -top-2 -right-2">
+            <div class="w-5 h-5 flex justify-center jump items-center bg-primary text-white text-xs border border-white rounded-full absolute -top-2 -right-2">
               {{ cart.item_count }}
             </div>
           {% endif %}
@@ -43,13 +43,10 @@
       {% assign icon_class = 'w-auto h-7 text-black mb-2' %}
 
       <div class="hidden md:flex space-x-2 lg:space-x-6">
-        <a
-          href="{{ routes.search_url }}"
-          class="{{ link_class }}"
-        >
-          {% render 'icon-search', class: icon_class %}
-          {{ 'action.search' | t }}
+        <a href="#" class="bg-tertiary text-primary self-center hover:bg-primary hover:text-white transition-colors duration-200 h-12 flex items-center justify-center text-center px-8">
+          Take the quiz
         </a>
+
 
         {% if shop.customer_accounts_enabled %}
           <a
@@ -63,13 +60,13 @@
 
         <a
           href="{{ routes.cart_url }}"
-          class="{{ link_class }} relative"
+          class="{{ link_class }} relative group"
         >
           {% render 'icon-cart', class: icon_class %}
           {{ 'action.cart' | t }}
 
           {% if cart.item_count > 0 %}
-            <div class="w-5 h-5 flex justify-center items-center bg-black text-white text-xs border border-white rounded-full absolute top-0 right-0">
+            <div class="w-5 h-5 flex jump justify-center items-center bg-primary text-white text-xs border border-white rounded-full absolute top-1 right-0">
               {{ cart.item_count }}
             </div>
           {% endif %}

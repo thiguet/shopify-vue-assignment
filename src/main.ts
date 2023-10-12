@@ -37,13 +37,11 @@ const createVueApp = () => {
   const vueComponents = require.context(
     "./vue/components/",
     true,
-    /\.(vue|js)$/
+    /\.(vue|js)$/,
   )
 
   vueComponents.keys().forEach((key) => {
     const component = vueComponents(key).default
-    console.log(key)
-
     // if a component has a name defined use the name, else use the path as the component name
     const name = component.name
       ? component.name
@@ -71,7 +69,7 @@ const createVueApp = () => {
   const directives = require.context(
     "./vue/directives/",
     true,
-    /.*global.*\.js$/
+    /.*global.*\.js$/,
   )
 
   directives.keys().forEach((key) => {
@@ -123,7 +121,7 @@ if (Shopify.designMode) {
   new MutationObserver((mutationsList) => {
     mutationsList.forEach((record) => {
       const vue = Array.from(record.addedNodes).find(
-        (node) => node.classList && node.classList.value.includes("vue")
+        (node) => node.classList && node.classList.value.includes("vue"),
       )
       if (vue) window.location.reload()
     })

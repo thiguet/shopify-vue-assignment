@@ -1,5 +1,5 @@
 <script>
-import { toRefs, ref } from "vue"
+import { ref, toRefs } from "vue"
 import { useStore } from "vuex"
 
 export default {
@@ -26,16 +26,16 @@ export default {
     const selectOption = ({ name }, $event) => {
       const selectedValue = $event.target.value
       const selectedOption = productOptions.value.find(
-        (option) => option.name === name
+        (option) => option.name === name,
       )
       const allOptionValuesWithoutSelected = selectedOption.values.filter(
-        (value) => value !== selectedValue
+        (value) => value !== selectedValue,
       )
 
       const targetOptions = [
         selectedValue,
         ...selectedVariant.value.options.filter(
-          (value) => !allOptionValuesWithoutSelected.includes(value)
+          (value) => !allOptionValuesWithoutSelected.includes(value),
         ),
       ]
 
@@ -47,6 +47,8 @@ export default {
           goToVariant(selectedVariant.value.id)
           updateVariant($event.target, name)
           return true
+        } else {
+          updateVariant($event.target, name)
         }
       })
     }
@@ -62,6 +64,62 @@ export default {
         .querySelector(`[data-option="${optionName}"] label.active`)
         .classList.remove("active")
       target.parentElement.querySelector("label").classList.add("active")
+
+      hideImpossibleVariantOptions(optionName, target.value)
+    }
+
+    const hideImpossibleVariantOptions = function (optionName, value) {
+      const optionsToUnhide = document.querySelectorAll(
+        `[data-option]:not([data-option="${optionName}"]) .option`,
+      )
+
+      optionsToUnhide.forEach((el) => {
+        el.parentElement.classList.remove("hidden")
+      })
+
+      const otherOptions = document.querySelectorAll(
+        `[data-option]:not([data-option="${optionName}"])`,
+      )
+
+      const allOptions = document.querySelectorAll(`[data-option]`)
+
+      const optionIndex =
+        Array.from(allOptions).findIndex(
+          (el) => el.getAttribute("data-option") == optionName,
+        ) + 1
+
+      const possibleOptions = productVariants.value.filter(
+        (variant, i) => variant[`option${optionIndex}`] === value,
+      )
+
+      const valuesToHide = possibleOptions.reduce(
+        (acc, next) => {
+          return {
+            option1: Array.from(new Set(acc["option1"].concat(next.option1))),
+            option2: Array.from(new Set(acc["option2"].concat(next.option2))),
+            option3: Array.from(new Set(acc["option3"].concat(next.option3))),
+          }
+        },
+        {
+          option1: [],
+          option2: [],
+          option3: [],
+        },
+      )
+
+      for (const key in valuesToHide) {
+        if (key === `option${optionIndex}`) {
+          continue
+        }
+
+        document
+          .querySelectorAll(`[data-option-index="${key}"] .option`)
+          .forEach((el) => {
+            if (!valuesToHide[key].includes(el.getAttribute("data-value"))) {
+              el.parentElement.classList.add("hidden")
+            }
+          })
+      }
     }
 
     return () =>
@@ -69,10 +127,6 @@ export default {
         selectedVariant: selectedVariant.value,
         selectOption,
       })
-  },
-  mounted() {
-    const store = useStore()
-    store.dispatch("product/variant", this.productVariants[0])
   },
 }
 </script>
