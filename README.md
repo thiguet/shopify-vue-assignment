@@ -31,10 +31,10 @@ Here's the [Demo](https://thiguet-assigment.myshopify.com/) link.
     - [x] ii. Compare Price (to be striked out)
     - [x] iii. Percentage Savings: Dynamic based on price and compare price
 
-- [ ] 2. Hero Gallery
+- [x] 2. Hero Gallery
 
-  - [ ] a. Mobile: Carousel functionality
-  - [ ] b. Desktop: 2 column layout with n+2 images.
+  - [x] a. Mobile: Carousel functionality
+  - [x] b. Desktop: 2 column layout with n+2 images.
 
 - [x] 3. Product Description
 
@@ -52,9 +52,9 @@ Here's the [Demo](https://thiguet-assigment.myshopify.com/) link.
     - [x] iii. Option 3: Size
       - [x] 1. Men Sizes: 7 - 15
       - [x] 2. Women sizes: 5 - 12
-  - [ ] b. When a user selects option(s) they should automatically update other options to
+  - [x] b. When a user selects option(s) they should automatically update other options to
         show / hide the correct information.
-    - [ ] i. Example: Standard width is selected, then the user selects Women
+    - [x] i. Example: Standard width is selected, then the user selects Women
           gender. Result should be displaying the correct range of sizes.
 
 - [x] 5. Product Add To Cart
@@ -62,9 +62,9 @@ Here's the [Demo](https://thiguet-assigment.myshopify.com/) link.
   - [x] a. Based on user selection, the price displayed in button text should update in
         accordance with product pricing.
 
-- [ ] 6. Product Guarantee Text
+- [x] 6. Product Guarantee Text
 
-  - [ ] a. Displays small image and text
+  - [x] a. Displays small image and text
 
 - [x] 7. Product Values Icon Row
   - [x] a. Mobile: 2 column layout with n+2 images.

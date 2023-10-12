@@ -2,7 +2,7 @@
   <div class="container">
     <div class="h-20 md:h-24 flex space-between md:justify-between items-center">
       
-      <div class="px-2 flex justify-between items-center w-full md:hidden">
+      <div class="px-2 flex justify-between items-center w-full lg:hidden">
         <button @click="$store.dispatch('mobile-menu/toggle')" aria-label="side menu icon">
           {% render 'icon-menu' %}
         </button>
@@ -30,20 +30,20 @@
 
       <a
         href="{{ routes.root_url }}"
-        class="hidden md:inline-block text-2xl lg:text-3xl font-bold"
+        class="hidden lg:inline-block text-2xl lg:text-3xl font-bold"
       >
         {% render 'logo' %}
       </a>
 
-      <div class="hidden md:block">
+      <div class="hidden lg:block">
         {% render 'layout-menu', class: 'space-x-4' %}
       </div>
 
       {% assign link_class = 'flex flex-col justify-center items-center text-sm text-gray-600 hover:text-black font-medium transition duration-150 p-2' %}
       {% assign icon_class = 'w-auto h-7 text-black mb-2' %}
 
-      <div class="hidden md:flex space-x-2 lg:space-x-6">
-        <a href="#" class="bg-tertiary text-primary self-center hover:bg-primary hover:text-white transition-colors duration-200 h-12 flex items-center justify-center text-center px-8">
+      <div class="hidden lg:flex space-x-2 lg:space-x-6">
+        <a href="#" class="bg-tertiary mr-2 text-primary self-center hover:bg-primary hover:text-white transition-colors duration-200 h-12 flex items-center justify-center text-center px-8">
           Take the quiz
         </a>
 
@@ -63,7 +63,6 @@
           class="{{ link_class }} relative group"
         >
           {% render 'icon-cart', class: icon_class %}
-          {{ 'action.cart' | t }}
 
           {% if cart.item_count > 0 %}
             <div class="w-5 h-5 flex jump justify-center items-center bg-primary text-white text-xs border border-white rounded-full absolute top-1 right-0">

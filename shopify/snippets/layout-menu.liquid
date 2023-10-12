@@ -2,7 +2,7 @@
   {% for link in linklists.main-menu.links %}
     <a
       href="{{ link.url }}"
-      class="inline-flex px-5 py-3 items-center gap-2 text-primary text-2xl leading-tight border-b transition duration-150 {% if link.active %}border-black{% else %}border-transparent hover:underline{% endif %}"
+      class="inline-flex lg:px-2 xl:px-5 py-3 items-center gap-2 text-primary text-2xl leading-tight transition duration-150 hover:underline"
       aria-label="{{ link.title }}"
     >
       <span>{{ link.title }}</span>

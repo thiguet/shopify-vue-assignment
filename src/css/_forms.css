@@ -1,5 +1,5 @@
 label:not([type="checkbox"]):not([type="radio"]) {
-  @apply cursor-pointer select-none text-sm sm:text-base;
+  @apply cursor-pointer select-none sm:text-lg text-base;
 }
 
 input:not([type="checkbox"]):not([type="radio"]) {

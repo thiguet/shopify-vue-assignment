@@ -60,59 +60,59 @@
 
 {% schema %}
 {
-    "name": "t:sections.circles.name",
-    "class": "shopify-section-vue",
-    "blocks": [
+  "name": "t:sections.circles.name",
+  "class": "shopify-section-vue",
+  "blocks": [
+    {
+      "type": "circle",
+      "name": "t:sections.circles.blocks.circle",
+      "settings": [
         {
-            "type": "circle",
-            "name": "t:sections.circles.blocks.circle",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "t:common.headline"
-                },
-                {
-                    "type": "color",
-                    "id": "bg_color",
-                    "default": "#f5c158",
-                    "label": "t:sections.circles.settings.bg-color"
-                },
-                {
-                    "type": "image_picker",
-                    "id": "icon",
-                    "label": "t:sections.circles.settings.icon"
-                }
-            ]
+          "type": "text",
+          "id": "title",
+          "label": "t:common.headline"
         },
         {
-            "type": "desktop_circle",
-            "name": "t:sections.circles.blocks.desktop_circle",
-            "settings": [
-                {
-                    "type": "text",
-                    "id": "title",
-                    "label": "t:common.headline"
-                },
-                {
-                    "type": "color",
-                    "id": "bg_color",
-                    "default": "#f5c158",
-                    "label": "t:sections.circles.settings.bg-color"
-                },
-                {
-                    "type": "image_picker",
-                    "id": "icon",
-                    "label": "t:sections.circles.settings.icon"
-                }
-            ]
-        }
-    ],
-    "presets": [
+          "type": "color",
+          "id": "bg_color",
+          "default": "#f5c158",
+          "label": "t:sections.circles.settings.bg-color"
+        },
         {
-            "name": "t:sections.circles.name",
-            "category": "Circles"
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:sections.circles.settings.icon"
         }
-    ]
+      ]
+    },
+    {
+      "type": "desktop_circle",
+      "name": "t:sections.circles.blocks.desktop_circle",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:common.headline"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "default": "#f5c158",
+          "label": "t:sections.circles.settings.bg-color"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "t:sections.circles.settings.icon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.circles.name",
+      "category": "Circles"
+    }
+  ]
 }
 {% endschema %}

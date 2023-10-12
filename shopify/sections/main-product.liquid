@@ -28,16 +28,16 @@
     {% endif %}
 
     {% if current_variant.available %}
-        <div class="flex gap-3">
-          <span v-html="$store.getters['product/getPrice']" class="inline-block text-xl text-primary font-semibold">
+        <div class="flex gap-2">
+          <span v-html="$store.getters['product/getPrice']" class="inline-block text-xl lg:text-2xl text-primary font-semibold">
           </span>
 
           {% if current_variant.compare_at_price %}
-            <del v-html="$store.getters['product/getCompareAtPrice']" class="text-xl text-primary opacity-60 font-semibold">
+            <del v-html="$store.getters['product/getCompareAtPrice']" class="text-xl lg:text-2xl text-primary opacity-60 font-semibold">
             </del>
 
             {% assign ratio = current_variant.price | times: 100 | divided_by: current_variant.compare_at_price %}
-            {% assign discount = 100 | minus: ratio %}
+            
 
             <div class="bg-secondary flex items-center h-8 text-primary text-sm tracking-wider uppercase px-2 py-1">
               <span v-html="$store.getters['product/getDiscount']">
@@ -58,23 +58,23 @@
   <renderless-simple-slider slider-class="slider" slider-container-class="slider-container" v-slot="{ slideTo, slideNext, slidePrev, activeSlider }" >
     <div class="flex lg:hidden h-full items-center relative max-w-full">
       {% if section.settings.enable_slider_controls %}
-        <button @click="slidePrev" type="button" class="bg-[#eee] border border-[#fafafa] rounded-full slider-prev absolute z-10 left-5 h-10 w-10 flex justify-center items-center" aria-label="show previous image"> {% render 'icon-chevron-left'%}</button>
-        <button @click="slideNext" type="button" class="bg-[#eee] border border-[#fafafa] rounded-full slider-next absolute z-10 right-1 mr-0 h-10 w-10 flex justify-center items-center" aria-label="show next image"> {% render 'icon-chevron-right'%}</button>
+        <button @click="slidePrev" type="button" class="bg-[#eee] border border-[#fafafa] rounded-full slider-prev absolute z-10 left-5 h-10 w-10 flex justify-center items-center" aria-label="show previous image"> {% render 'icon-chevron-left' %}</button>
+        <button @click="slideNext" type="button" class="bg-[#eee] border border-[#fafafa] rounded-full slider-next absolute z-10 right-1 mr-0 h-10 w-10 flex justify-center items-center" aria-label="show next image"> {% render 'icon-chevron-right' %}</button>
       {% endif %}
       <div class="pl-4 mt-8 slider scroll-smooth overflow-x-auto w-[calc(100vw-1rem)] pb-14 mb-2 md:pb-0 md:m-0">
         
           <div class="slider-container relative gap-0 inline-flex flex-nowrap">
 
-            {% assign index = 0  %}
+            {% assign index = 0 %}
             <div class="w-[90vw] md:w-[45vw] slide" data-index="{{ index }}">
               <img
                 alt="{{ featured_image.alt | escape }}"
                 srcset="
-                  {{ featured_image | img_url: '375x' }} 375w,
-                  {{ featured_image | img_url: '500x' }} 500w,
-                  {{ featured_image | img_url: '750x' }} 750w,
-                  {{ featured_image | img_url: '1000x' }} 1000w,
-                  {{ featured_image | img_url: '1200x' }} 1200w
+                  {{ featured_image | image_url: width: 375 }} 375w,
+                  {{ featured_image | image_url: width: 500 }} 500w,
+                  {{ featured_image | image_url: width: 750 }} 750w,
+                  {{ featured_image | image_url: width: 1000 }} 1000w,
+                  {{ featured_image | image_url: width: 1200 }} 1200w
                 "
                 sizes="100vw"
                 loading="eager"
@@ -83,15 +83,15 @@
             </div>
             {% for image in product.images %}
               {% if image.id != featured_image.id %}
-                {% assign index = index | plus: 1%}
+                {% assign index = index | plus: 1 %}
                 <div class="w-[90vw] md:w-[45vw] slide" data-index="{{ index }}">
                   <img
                       srcset="
-                        {{ image | img_url: '375x' }} 375w,
-                        {{ image | img_url: '500x' }} 500w,
-                        {{ image | img_url: '750x' }} 750w,
-                        {{ image | img_url: '1000x' }} 1000w,
-                        {{ image | img_url: '1200x' }} 1200w
+                        {{ image | image_url: width: 375 }} 375w,
+                        {{ image | image_url: width: 500 }} 500w,
+                        {{ image | image_url: width: 750 }} 750w,
+                        {{ image | image_url: width: 1000 }} 1000w,
+                        {{ image | image_url: width: 1200 }} 1200w
                       "
                       sizes="100vw"
                       alt="{{ image.alt | escape }}"
@@ -118,16 +118,16 @@
   
   <div class="hidden lg:flex w-full items-start col-span-4">
     <div class="lg:pl-4 lg:grid {% if product.images.size > 1 %} grid-cols-2{% endif %} w-full gap-6">
-      {% assign index = 0  %}
+      {% assign index = 0 %}
       <div class="h-auto max-h-[50vh]" data-index="{{ index }}">
         <img
           alt="{{ featured_image.alt | escape }}"
           srcset="
-            {{ featured_image | img_url: '375x' }} 375w,
-            {{ featured_image | img_url: '500x' }} 500w,
-            {{ featured_image | img_url: '750x' }} 750w,
-            {{ featured_image | img_url: '1000x' }} 1000w,
-            {{ featured_image | img_url: '1200x' }} 1200w
+            {{ featured_image | image_url: width: 375 }} 375w,
+            {{ featured_image | image_url: width: 500 }} 500w,
+            {{ featured_image | image_url: width: 750 }} 750w,
+            {{ featured_image | image_url: width: 1000 }} 1000w,
+            {{ featured_image | image_url: width: 1200 }} 1200w
           "
           sizes="100vw"
           loading="lazy"
@@ -136,14 +136,14 @@
       </div>
       {% for image in product.images %}
         {% if image.id != featured_image.id %}
-        {% assign index = index | plus: 1%}
+        {% assign index = index | plus: 1 %}
           <div class="h-auto" data-index="{{ index }}">
             <img
-                srcset="  {{ image | img_url: '375x' }} 375w,
-                {{ image | img_url: '500x' }} 500w,
-                {{ image | img_url: '750x' }} 750w,
-                {{ image | img_url: '1000x' }} 1000w,
-                {{ image | img_url: '1200x' }} 1200w"
+                srcset="  {{ image | image_url: width: 375 }} 375w,
+                {{ image | image_url: width: 500 }} 500w,
+                {{ image | image_url: width: 750 }} 750w,
+                {{ image | image_url: width: 1000 }} 1000w,
+                {{ image | image_url: width: 1200 }} 1200w"
                 sizes="100vw"
                 alt="{{ image.alt | escape }}"
                 loading="lazy"
@@ -183,16 +183,16 @@
   
       {% if current_variant.available %}
           <div class="flex gap-3">
-            <span v-html="$store.getters['product/getPrice']" class="inline-block text-xl text-primary font-semibold">
+            <span v-html="$store.getters['product/getPrice']" class="inline-block text-xl lg:text-2xl text-primary font-semibold">
             </span>
   
             {% if current_variant.compare_at_price %}
-              <del v-html="$store.getters['product/getCompareAtPrice']" class="text-xl text-primary opacity-60 font-semibold">
+              <del v-html="$store.getters['product/getCompareAtPrice']" class="text-xl lg:text-2xl text-primary opacity-60 font-semibold">
               </del>
   
-              <div class="bg-secondary flex items-center h-8 text-primary text-sm tracking-wider uppercase px-2 py-1">
+              <div class="bg-secondary flex items-center h-8 text-primary text-sm lg:text-md tracking-wider uppercase px-2 py-1">
                 {% assign ratio = current_variant.price | times: 100 | divided_by: current_variant.compare_at_price %}
-                {% assign discount = 100 | minus: ratio %}
+                
                 <span v-html="$store.getters['product/getDiscount']"></span>
                 {{- 'common.sale' | t -}} 
               </div>
@@ -247,14 +247,14 @@
 
               <div class="flex flex-col gap-x-3 gap-y-2 w-full">
                 {% for option in product.options_with_values %}
-                  <div class="space-y-1" data-option="{{option.name}}" data-option-index="option{{forloop.index}}">
+                  <div class="space-y-1" data-option="{{ option.name }}" data-option-index="option{{ forloop.index }}">
                     {% if option.name == 'Size' %}
                       <div class="flex justify-between">
                         <label class="text-lg lg:text-md lg:mb-4 text-primary" for="product-select-option-{{ forloop.index }}">
                           {{ option.name | escape }}:
                         </label>
 
-                        <a href="#" class="mb-2 text-primary underline">Help me choose</a>
+                        <a href="#" class="text-primary underline">Help me choose</a>
                       </div>
                     {% else %}
                       <label class="text-lg lg:text-md lg:mb-4 text-primary" for="product-select-option-{{ forloop.index }}">
@@ -267,12 +267,12 @@
                     <div class="{% if values.size > 9 %}grid grid-cols-9 gap-1 {% else %}flex flex-nowrap gap-1 {% endif %}  w-full">
                       {% for value in values %}
                         <div class="w-full">
-                          <label class="option visible text-lg lg:mb-0 option flex items-center text-center justify-center p-2 rounded-md {% if option.selected_value == value %} active {% endif %}" for="{{value}}" data-value="{{value}}">{{value | escape}} </label>
+                          <label class="option visible text-lg lg:mb-0 flex items-center text-center justify-center p-2 rounded-xl {% if option.selected_value == value %} active {% endif %}" for="{{value}}" data-value="{{value}}">{{ value | escape }} </label>
                           <input 
                             @input="selectOption({
                               name: '{{ option.name }}'
                             }, $event)"
-                            id="{{value}}" name="{{option.name}}" type="radio" class="sr-only" value="{{value}}" />
+                            id="{{ value }}" name="{{ option.name }}" type="radio" class="sr-only" value="{{value}}" />
                         </div>
                       {% endfor %}
                     </div>
@@ -290,11 +290,22 @@
             {{ 'action.add_to_cart' | t }} <span v-html="$store.getters['product/getPrice']"></span>
           </button>
         </div>
+
+        {% if section.settings.guarantee_icon != nil and section.settings.guarantee_text != nil %}
+          <div class="flex mt-4 w-full gap-2 justify-center items-center">
+            <img 
+              src="{{ section.settings.guarantee_icon | image_url }}" 
+              width="{{ section.settings.guarantee_icon.width }}" 
+              height="{{ section.settings.guarantee_icon.height }}" 
+              alt="{{ section.settings.guarantee_icon.alt | default: 'Guarantee icon' }}"
+              loading="eager" />
+            <p class="text-primary">{{ section.settings.guarantee_text }}</p>
+          </div>
+        {% endif %}
       </div>
     {% endform %}
   </div>
 </div>
-
 
 {% schema %}
 {
@@ -312,6 +323,16 @@
       "id": "enable_slider_controls",
       "label": "t:sections.main-product.settings.enable_slider_controls",
       "default": false
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "t:sections.main-product.settings.guarantee_text"
+    },
+    {
+      "type": "image_picker",
+      "id": "guarantee_icon",
+      "label": "t:sections.main-product.settings.guarantee_icon"
     }
   ]
 }
